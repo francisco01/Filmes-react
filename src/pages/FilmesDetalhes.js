@@ -6,37 +6,32 @@ import Line from '../components/line';
 export default class FilmesDetalhes extends Component {
 
     static navigationOptions = ({ navigation }) => {
-    //render() {
-        const filmes = navigation;
-        console.log(filmes);
-        const filme = filmes.getParam('itemT');
-        const teste = filme.title;
-        console.log(teste);
-
+   
+        const filme = navigation.state.params.itemT;
+        const filmeNome = filme.title;
+     
         return ({
             headerTitle: `${
-                captalizeFirstLetter(teste)
+                captalizeFirstLetter(filmeNome)
             }`,
             headerTitleStyle: {
                 color: 'red',
                 fontSize: 30,
             },
             
-
         });
     }
 
     render() {
-
-        const {navigate} = this.props.navigation.state.params.itemT;
-        console.log(navigate);
+        const {itemT} = this.props.navigation.state.params;
+        const {url} = this.props.navigation.state.params;
 
         return (
             <View style={styles.container}>
                 
-                
+                <Image source={{uri:url + itemT.poster_path}} style={styles.avatar}></Image>
                 <View style={styles.detailContainer}>
-                   
+                   <Line label="Overview: " content={itemT.overview}></Line>
 
                 </View>
 

@@ -60,7 +60,8 @@ export default class Filme extends Component {
     )
     onPress(item){
         this.props.navigation.navigate('FilmesDetalhes', {
-            itemT: item});
+            itemT: item,
+            url: this.state.post_url});
     }
 
 
