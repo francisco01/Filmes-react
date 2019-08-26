@@ -1,35 +1,42 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
+import { captalizeFirstLetter } from '../util';
 import Line from '../components/line';
 
 export default class FilmesDetalhes extends Component {
 
     static navigationOptions = ({ navigation }) => {
-        const filmeNome = navigation.state.params.filme.title;
+    //render() {
+        const filmes = navigation;
+        console.log(filmes);
+        const filme = filmes.getParam('itemT');
+        const teste = filme.title;
+        console.log(teste);
 
-        return {
-            headerTitle: {
-                filmeNome
-            },
+        return ({
+            headerTitle: `${
+                captalizeFirstLetter(teste)
+            }`,
             headerTitleStyle: {
                 color: 'red',
                 fontSize: 30,
-            }
-        }
+            },
+            
+
+        });
     }
 
     render() {
 
-        const {filme} = this.props.navigation.state.params;
+        const {navigate} = this.props.navigation.state.params.itemT;
+        console.log(navigate);
 
         return (
             <View style={styles.container}>
-                <Image source={{ uri: filme.backdrop_path}}
-                    style={styles.avatar}>
-
-                </Image>
+                
+                
                 <View style={styles.detailContainer}>
-                   <Line label="Title: " content={filme.title}></Line>
+                   
 
                 </View>
 

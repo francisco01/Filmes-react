@@ -3,22 +3,23 @@ import {FlatList, Text, StyleSheet} from 'react-native';
 import FilmeListItem from './FilmeListItem'
 
 
+
 const FilmeList = props => {
     const {filmes, onPressItem} = props;
+    console.log('list', filmes);
     return (
-        <FlatList
-            style={styles.container}>
-            data={filmes}
+        <FlatList style={styles.container}
+            data={this.filmes}
             renderItem={({item}) => (
-            <FilmeListItem 
+            <FilmeListItem
                 filme = {item}
                 navigateFilmeDetalhe={onPressItem}/>
             )} 
-            
-            keyExtractor={item => item.id}
-            
+            keyExtractor={item => item.id.toString()}>
         </FlatList>
+       
     )
+    
 };
 
 const styles = StyleSheet.create({

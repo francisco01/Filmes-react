@@ -13,7 +13,7 @@ const AppNavigator = createStackNavigator({
   }
 },
   {
-    defaulNavigationOptions: {
+    defaultNavigationOptions: {
       title: 'Filmes!',
       headerTintColor: 'white',
       headerStyle: {

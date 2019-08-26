@@ -5,8 +5,9 @@ import {captalizeFirstLetter} from '../util';
 
 const FilmeListItem = props =>{
     const {filme, navigateFilmeDetalhe} = props
-    const {title, original_language} = filme;
-    console.log(title);
+    console.log(filme);
+    const {title} = filme.title;
+    const{original_language} = filme.original_language;
 
     return (
         <TouchableOpacity onPress={() => {
@@ -18,18 +19,17 @@ const FilmeListItem = props =>{
                 <Text style={styles.lineText}>
                     { `${
                         captalizeFirstLetter(title)
-                    }
+                        }
                         ${
                             captalizeFirstLetter(original_language)
-                        }
-                        
-                    }`}
+                        }`
+                    }
                         
                 </Text>
             </View>
 
         </TouchableOpacity>
-    )
+    );
 }
 
 const styles = StyleSheet.create({
